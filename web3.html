@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Simple Website</title>
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .hero {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') no-repeat center/cover;
+      position: relative;
+      color: white;
+    }
+
+    /* Dark overlay */
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    /* Keep content above overlay */
+    .hero * {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* Links */
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    .navbar a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: white;
+      left: 0;
+      bottom: -5px;
+      transition: 0.3s;
+    }
+
+    .navbar a:hover::after {
+      width: 100%;
+    }
+
+    .navbar a:hover {
+      text-shadow: 0 0 8px white;
+    }
+
+    /* Center text */
+    .content {
+      position: relative;
+      z-index: 2;
+      color: white;
+      text-align: center;
+      top: 40%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="hero">
+    <div class="navbar">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Gallery</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <div class="content">
+      <h1>Welcome</h1>
+      <p>Beautiful Background Navbar</p>
+    </div>
+  </div>
+</body>
+</html>
